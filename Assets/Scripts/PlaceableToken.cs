@@ -12,7 +12,7 @@ public class PlaceableToken : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		for ( int i = 1; i < numberOfAvailabeTokens; i++ ) {
+		for ( int i = 0; i < numberOfAvailabeTokens; i++ ) {
 			Vector3 offset = new Vector3(i, 0, 0);
 			placeableTokens.Push( Instantiate( tokenPrefab, transform.position + offset, Quaternion.identity ) );
 		}
@@ -22,4 +22,6 @@ public class PlaceableToken : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	//public bool hasPlaceableToken
 }

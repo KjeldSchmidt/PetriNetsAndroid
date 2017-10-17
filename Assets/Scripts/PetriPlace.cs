@@ -6,14 +6,15 @@ public class PetriPlace : MonoBehaviour {
 	public int initialTokens;
 	public GameObject token;
 
-	private int tokenCount = 0;
 	private Queue<GameObject> tokens;
+	private GameObject placeableTokenController;
 
 	private static float tokenRadius = 0.74f;
 
 	// Use this for initialization
 	void Start () {
-		tokenCount = initialTokens;
+		placeableTokenController = GameObject.FindWithTag("PlaceableTokenController");
+
 		tokens = new Queue<GameObject>();
 		for ( int i = 0; i < initialTokens; i++ ) {
 			createNewToken();
@@ -30,15 +31,13 @@ public class PetriPlace : MonoBehaviour {
 	}
 
 	public void takeToken() {
-		if ( tokenCount > 0 ) {
-			tokenCount--;
+		if ( tokens.Count > 0 ) {
 			var oldToken = tokens.Dequeue();
 			Destroy( oldToken );
 		}
 	}
 
 	public void giveToken() {
-		tokenCount++;
 		createNewToken();
 	}
 
@@ -59,5 +58,9 @@ public class PetriPlace : MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	private void OnMouseDown() {
+
 	}
 }
