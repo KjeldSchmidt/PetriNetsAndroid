@@ -9,7 +9,7 @@ public class PetriPlace : MonoBehaviour {
 	private Queue<GameObject> tokens;
 	private PlaceableTokenController tokenController;
 
-	private static float tokenRadius = 0.74f;
+	private static float tokenRadius = 0.555f;
 
 	// Use this for initialization
 	void Start () {
