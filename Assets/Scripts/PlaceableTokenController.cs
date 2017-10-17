@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaceableToken : MonoBehaviour {
+public class PlaceableTokenController : MonoBehaviour {
 
 	public int numberOfAvailabeTokens;
 	public GameObject tokenPrefab;
