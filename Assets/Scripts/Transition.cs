@@ -24,6 +24,11 @@ public class Transition : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
+		foreach ( PetriPlace input in inputPlaces ) {
+			if ( !input.hasToken() ) {
+				return;
+			}
+		}
 		this.fire();
 	}
 

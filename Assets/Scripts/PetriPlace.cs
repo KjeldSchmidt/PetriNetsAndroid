@@ -25,6 +25,10 @@ public class PetriPlace : MonoBehaviour {
 		spaceTokens();
 	}
 
+	public bool hasToken() {
+		return tokens.Count > 0;
+	}
+
 	public void takeToken() {
 		if ( tokenCount > 0 ) {
 			tokenCount--;
