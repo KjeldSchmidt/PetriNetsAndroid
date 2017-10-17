@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class Transition : MonoBehaviour {
 
-	PetriPlace[] inputPlaces;
-	PetriPlace[] outputPlaces;
+	public PetriPlace[] inputPlaces;
+	public PetriPlace[] outputPlaces;
 
 
 
 
 	// Use this for initialization
-	void Start () {
-		PetriPlace input = GameObject.Find("Input").GetComponent<PetriPlace>();
-		PetriPlace output = GameObject.Find("Output").GetComponent<PetriPlace>();
-		inputPlaces = new PetriPlace[] { input };
-		outputPlaces = new PetriPlace[] { output };
-	}
+	void Start () {}
 	
 	// Update is called once per frame
 	void Update () {
