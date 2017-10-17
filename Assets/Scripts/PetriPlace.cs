@@ -7,13 +7,13 @@ public class PetriPlace : MonoBehaviour {
 	public GameObject token;
 
 	private Queue<GameObject> tokens;
-	private GameObject placeableTokenController;
+	private PlaceableTokenController tokenController;
 
 	private static float tokenRadius = 0.74f;
 
 	// Use this for initialization
 	void Start () {
-		placeableTokenController = GameObject.FindWithTag("PlaceableTokenController");
+		tokenController = GameObject.FindWithTag("PlaceableTokenController").GetComponent<PlaceableTokenController>();
 
 		tokens = new Queue<GameObject>();
 		for ( int i = 0; i < initialTokens; i++ ) {
@@ -60,7 +60,18 @@ public class PetriPlace : MonoBehaviour {
 		}
 	}
 
-	private void OnMouseDown() {
-
+	void OnMouseDown() {
+		getTokenFromController();
 	}
+
+	private void getTokenFromController() {
+		if ( tokenController.hasPlaceableToken() ) {
+			GameObject aquiredToken = tokenController.getPlaceableToken();
+			Vector3 randomOffset = Random.insideUnitCircle * 0.01f;
+			aquiredToken.transform.position = transform.position + randomOffset;
+			tokens.Enqueue( aquiredToken );
+		}
+	}
+
+
 }

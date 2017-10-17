@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlaceableTokenController : MonoBehaviour {
 
@@ -23,5 +24,15 @@ public class PlaceableTokenController : MonoBehaviour {
 		
 	}
 
-	//public bool hasPlaceableToken
+	public bool hasPlaceableToken() {
+		return placeableTokens.Count > 0;
+	}
+
+	public GameObject getPlaceableToken() {
+		if ( this.hasPlaceableToken() ) {
+			return placeableTokens.Pop();
+		}
+
+		throw new Exception("You should have checked to see if tokens are available, but you didn't");
+	}
 }
