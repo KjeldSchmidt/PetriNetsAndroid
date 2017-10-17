@@ -42,7 +42,7 @@ public class PetriPlace : MonoBehaviour {
 	}
 
 	private void createNewToken() {
-		Vector3 randomOffset = Random.insideUnitCircle * 0.01f;
+		Vector3 randomOffset = Random.insideUnitCircle * 0.1f;
 		tokens.Enqueue( Instantiate( token, transform.position + randomOffset, Quaternion.identity ) );
 	}
 
