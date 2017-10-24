@@ -28,7 +28,12 @@ public class Wincondition : MonoBehaviour {
 		}
 
 		if ( winning ) {
-			SceneManager.LoadScene(nextLevel, LoadSceneMode.Single);
+			StartCoroutine(ChangeLevel());
 		}
+	}
+
+	IEnumerator ChangeLevel() {
+		yield return new WaitForSeconds(1);
+		SceneManager.LoadScene(nextLevel, LoadSceneMode.Single);
 	}
 }
