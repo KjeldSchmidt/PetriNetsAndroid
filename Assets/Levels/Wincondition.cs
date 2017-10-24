@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Wincondition : MonoBehaviour {
 	public PetriPlace[] placesToBeEmpty;
-	public Object nextLevel;
+	public string nextLevel;
 	public bool haveToUseAllTokens;
 	private PlaceableTokenController tokenController;
 
@@ -27,14 +27,8 @@ public class Wincondition : MonoBehaviour {
 			winning = false;
 		}
 
-		
-
-
-
-
-
 		if ( winning ) {
-			SceneManager.LoadScene(nextLevel.name, LoadSceneMode.Single);
+			SceneManager.LoadScene(nextLevel, LoadSceneMode.Single);
 		}
 	}
 }
