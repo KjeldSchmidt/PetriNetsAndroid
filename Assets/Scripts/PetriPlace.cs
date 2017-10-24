@@ -5,6 +5,7 @@ using UnityEngine;
 public class PetriPlace : MonoBehaviour {
 	public int initialTokens;
 	public GameObject token;
+	public bool canAddTokens;
 
 	private Queue<GameObject> tokens;
 	private PlaceableTokenController tokenController;
@@ -61,7 +62,9 @@ public class PetriPlace : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		getTokenFromController();
+		if ( canAddTokens ) {
+			getTokenFromController();
+		}
 	}
 
 	private void getTokenFromController() {
