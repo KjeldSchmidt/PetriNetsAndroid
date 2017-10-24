@@ -23,6 +23,10 @@ public class Wincondition : MonoBehaviour {
 			}
 		}
 
+		if ( tokenController.hasPlaceableToken() ) {
+			winning = false;
+		}
+
 		
 
 
