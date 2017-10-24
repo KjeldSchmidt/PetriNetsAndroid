@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 47ec8a5323340654291c17bfec7a9549
+timeCreated: 1508864175
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Rockwell Std
+  fontNames:
+  - Rockwell Std
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
