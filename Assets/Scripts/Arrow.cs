@@ -35,6 +35,7 @@ public class Arrow : MonoBehaviour {
 		arrowLine.localScale = new Vector3(scale, 1, 1);
 		arrowHead.localPosition = new Vector3(scale, 0, 0);
 
+		transform.position = new Vector3(input.position.x + scale, input.position.y, 0);
 
 	}
 	
