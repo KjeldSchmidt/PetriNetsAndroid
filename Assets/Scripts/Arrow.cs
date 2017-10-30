@@ -12,6 +12,7 @@ public class Arrow : MonoBehaviour {
 	private Transform input;
 	private Transform output;
 	private Transform arrowLine;
+	private Transform arrowHead;
 
 	private float baseLength = 2.0f; // This is the length of the arrowLine, excluding the head(!), before scaling is applied. This depends on illustrator settings.
 
@@ -24,6 +25,7 @@ public class Arrow : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		arrowHead = transform.GetChild(0);
 		arrowLine = transform.GetChild(1);
 		input = (direction == Direction.In) ? place.transform : transition.transform;
 		output = (direction == Direction.Out) ? place.transform : transition.transform;
@@ -31,6 +33,7 @@ public class Arrow : MonoBehaviour {
 		scale = absoluteLength/baseLength;
 
 		arrowLine.localScale = new Vector3(scale, 1, 1);
+		arrowHead.localPosition = new Vector3(scale, 0, 0);
 
 
 	}
