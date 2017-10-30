@@ -18,6 +18,7 @@ public class Arrow : MonoBehaviour {
 
 	private float absoluteLength;
 	private float scale;
+	private float angle;
 	private Vector3 absoluteStartPosition; // This is equal to the center of the input to this arrow (a place for input, transition for output)
 	private Vector3 absoluteEndPosition;   // This is equal to the center of the output of this arrow
 	private Vector3 EndPosition;           // This is where the arrow 
@@ -36,6 +37,11 @@ public class Arrow : MonoBehaviour {
 		arrowHead.localPosition = new Vector3(scale, 0, 0);
 
 		transform.position = new Vector3(input.position.x + scale, input.position.y, 0);
+
+		angle = Vector3.SignedAngle(input.position + new Vector3(scale, 0, 0), input.position - output.position, new Vector3(0, 0, 1));
+
+		transform.RotateAround(input.position, Vector3.forward, -angle);
+
 
 	}
 	
