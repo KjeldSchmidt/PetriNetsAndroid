@@ -42,6 +42,21 @@ public class Arrow : MonoBehaviour {
 
 		transform.RotateAround(input.position, Vector3.forward, -angle);
 
+		shortenLine(angle);
+	}
+
+	/*
+	*	At the point of calling, the line will be extended from the midpoint of input to the midpoint of output
+	*	For input, this is fine, since the excess line is just hidden behind it. For output, it is not; The arrowhead gets hidden
+	*	Unfortunately, fixing this is only easy if this is outgoing (since the target is a circle and the angle doesn't matter)
+	*	If this is an input to a transition, we have to do some trig, and also check multiple cases.
+	*	Not implemented yet is the case where a place is beneath a transition, rather than to the side.
+	*/
+	void shortenLine(float angle) {
+		// Case 1: Arrowhead going into a Place/Circle
+		
+
+	}
 
 	float getAngle(Transform point1, Transform point2) {
 		float dx = Mathf.Abs(point2.position.x - point1.position.x);
