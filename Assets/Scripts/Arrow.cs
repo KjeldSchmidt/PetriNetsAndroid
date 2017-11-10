@@ -38,11 +38,16 @@ public class Arrow : MonoBehaviour {
 
 		transform.position = new Vector3(input.position.x + scale, input.position.y, 0);
 
-		angle = Vector3.SignedAngle(input.position + new Vector3(scale, 0, 0), input.position - output.position, new Vector3(0, 0, 1));
+		angle = getAngle(input, output);
 
 		transform.RotateAround(input.position, Vector3.forward, -angle);
 
 
+	float getAngle(Transform point1, Transform point2) {
+		float dx = Mathf.Abs(point2.position.x - point1.position.x);
+		float dy = Mathf.Abs(point2.position.y - point1.position.y);
+		float angle = -Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
+		return angle;
 	}
 	
 	// Update is called once per frame
