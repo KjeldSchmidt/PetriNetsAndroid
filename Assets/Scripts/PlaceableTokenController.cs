@@ -14,7 +14,7 @@ public class PlaceableTokenController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		for ( int i = 0; i < numberOfAvailabeTokens; i++ ) {
-			Vector3 offset = new Vector3(i, 0, 0);
+			Vector3 offset = new Vector3(i, 0, -1);
 			placeableTokens.Push( Instantiate( tokenPrefab, transform.position + offset, Quaternion.identity ) );
 		}
 	}

@@ -44,7 +44,8 @@ public class PetriPlace : MonoBehaviour {
 
 	private void createNewToken() {
 		Vector3 randomOffset = Random.insideUnitCircle * 0.1f;
-		tokens.Enqueue( Instantiate( token, transform.position + randomOffset, Quaternion.identity ) );
+		Vector3 tokenPosition = new Vector3(transform.position.x, transform.position.y, -1);
+		tokens.Enqueue( Instantiate( token, tokenPosition + randomOffset, Quaternion.identity ) );
 	}
 
 	private void spaceTokens() {
@@ -71,7 +72,8 @@ public class PetriPlace : MonoBehaviour {
 		if ( tokenController.hasPlaceableToken() ) {
 			GameObject aquiredToken = tokenController.getPlaceableToken();
 			Vector3 randomOffset = Random.insideUnitCircle * 0.01f;
-			aquiredToken.transform.position = transform.position + randomOffset;
+			Vector3 inFront = new Vector3(0, 0, -1);
+			aquiredToken.transform.position = transform.position + randomOffset + inFront;
 			tokens.Enqueue( aquiredToken );
 		}
 	}
