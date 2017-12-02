@@ -54,7 +54,12 @@ public class Arrow : MonoBehaviour {
 	*/
 	void shortenLine(float angle) {
 		// Case 1: Arrowhead going into a Place/Circle
-		
+		float scale = arrowHead.localPosition.x;
+		if ( direction == Direction.Out ) {
+			arrowHead.localPosition = new Vector3(scale-1.4f, 0, 0);	
+		} else {
+			arrowHead.localPosition = new Vector3(scale-0.65f, 0, 0);	
+		}
 
 	}
 
