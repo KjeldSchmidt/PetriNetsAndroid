@@ -36,7 +36,7 @@ public class Arrow : MonoBehaviour {
 		arrowLine.localScale = new Vector3(scale, 1, 1);
 		arrowHead.localPosition = new Vector3(scale, 0, 0);
 
-		transform.position = new Vector3(input.position.x + scale, input.position.y, 0);
+		transform.position = new Vector3(input.position.x + scale, input.position.y, 1);
 
 		angle = getAngle(input, output);
 
@@ -59,9 +59,15 @@ public class Arrow : MonoBehaviour {
 	}
 
 	float getAngle(Transform point1, Transform point2) {
-		float dx = Mathf.Abs(point2.position.x - point1.position.x);
-		float dy = Mathf.Abs(point2.position.y - point1.position.y);
+		float x1 = point1.position.x;
+		float x2 = point2.position.x;
+		float y1 = point1.position.y;
+		float y2 = point2.position.y;
+		float dx = Mathf.Abs(x2 - x1);
+		float dy = Mathf.Abs(y2 - y1);
 		float angle = -Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
+		angle = (y1 < y2) ? angle : -angle;
+		angle = (x1 < x2) ? angle : 180-angle;
 		return angle;
 	}
 	
