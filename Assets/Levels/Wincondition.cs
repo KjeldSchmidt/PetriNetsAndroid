@@ -23,7 +23,7 @@ public class Wincondition : MonoBehaviour {
 			}
 		}
 
-		if ( tokenController.hasPlaceableToken() ) {
+		if ( haveToUseAllTokens && tokenController.hasPlaceableToken() ) {
 			winning = false;
 		}
 
