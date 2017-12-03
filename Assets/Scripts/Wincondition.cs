@@ -36,4 +36,8 @@ public class Wincondition : MonoBehaviour {
 		yield return new WaitForSeconds(1);
 		SceneManager.LoadScene(nextLevel, LoadSceneMode.Single);
 	}
+
+	void OnMouseDown() {
+		Application.LoadLevel(Application.loadedLevel);
+	}
 }
