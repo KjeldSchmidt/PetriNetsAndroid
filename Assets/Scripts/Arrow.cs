@@ -6,6 +6,7 @@ public class Arrow : MonoBehaviour {
 	public PetriPlace place;
 	public Transition transition;
 	public Direction direction;
+	public int multiplicity = 1;
 
 	public enum Direction {In, Out};
 
@@ -21,7 +22,7 @@ public class Arrow : MonoBehaviour {
 	private float angle;
 	private Vector3 absoluteStartPosition; // This is equal to the center of the input to this arrow (a place for input, transition for output)
 	private Vector3 absoluteEndPosition;   // This is equal to the center of the output of this arrow
-	private Vector3 EndPosition;           // This is where the arrow 
+	private Vector3 EndPosition;           // This is where the arrowHead will eventually point to.
 
 
 	// Use this for initialization
@@ -76,11 +77,6 @@ public class Arrow : MonoBehaviour {
 		angle = (y1 < y2) ? angle : -angle;
 		angle = (x1 < x2) ? angle : 180-angle;
 		return angle;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	void registerWithTransition() {
