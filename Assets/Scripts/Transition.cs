@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Transition : MonoBehaviour {
 
+	[Tooltip("Please leave at 0, thanks.")]
 	public List<PetriPlace> inputPlaces = new List<PetriPlace>();
+	[Tooltip("Please leave at 0, thanks.")]	
 	public List<PetriPlace> outputPlaces = new List<PetriPlace>();
 
 

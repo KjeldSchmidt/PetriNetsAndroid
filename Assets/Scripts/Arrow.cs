@@ -6,6 +6,7 @@ public class Arrow : MonoBehaviour {
 	public PetriPlace place;
 	public Transition transition;
 	public Direction direction;
+	[Tooltip("How many tokens are consumed/given by this arrow? Usually should be ~1-4 (definitely >= 1")]
 	public int multiplicity = 1;
 
 	public enum Direction {In, Out};
