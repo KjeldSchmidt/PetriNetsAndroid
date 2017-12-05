@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Transition : MonoBehaviour {
 
-	public PetriPlace[] inputPlaces;
-	public PetriPlace[] outputPlaces;
+	public List<PetriPlace> inputPlaces = new List<PetriPlace>();
+	public List<PetriPlace> outputPlaces = new List<PetriPlace>();
 
 
 

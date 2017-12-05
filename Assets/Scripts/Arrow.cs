@@ -43,6 +43,8 @@ public class Arrow : MonoBehaviour {
 		transform.RotateAround(input.position, Vector3.forward, -angle);
 
 		shortenLine(angle);
+
+		registerWithTransition();
 	}
 
 	/*
@@ -79,5 +81,15 @@ public class Arrow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void registerWithTransition() {
+		if ( direction == Direction.In ) {
+			this.transition.inputPlaces.Add( this.place );
+		}
+
+		if ( direction == Direction.Out ) {
+			this.transition.outputPlaces.Add( this.place );
+		}
 	}
 }
