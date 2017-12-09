@@ -27,19 +27,23 @@ public class PetriPlace : MonoBehaviour {
 		spaceTokens();
 	}
 
-	public bool hasToken() {
-		return tokens.Count > 0;
+	public bool hasEnoughTokens(int numberToTake) {
+		return tokens.Count >= numberToTake;
 	}
 
-	public void takeToken() {
-		if ( tokens.Count > 0 ) {
-			var oldToken = tokens.Dequeue();
-			Destroy( oldToken );
+	public void takeTokens(int numberToTake) {
+		if ( tokens.Count >= numberToTake ) {
+			for ( int i = 0; i < numberToTake; i++ ) {
+				var oldToken = tokens.Dequeue();
+				Destroy( oldToken );
+			}
 		}
 	}
 
-	public void giveToken() {
-		createNewToken();
+	public void giveTokens(int numberToCreate) {
+		for ( int i = 0; i < numberToCreate; i++ ) {
+			createNewToken();
+		}
 	}
 
 	private void createNewToken() {

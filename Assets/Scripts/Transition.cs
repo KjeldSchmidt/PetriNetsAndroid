@@ -5,9 +5,9 @@ using UnityEngine;
 public class Transition : MonoBehaviour {
 
 	[Tooltip("Please leave at 0, thanks.")]
-	public List<PetriPlace> inputPlaces = new List<PetriPlace>();
+	public Dictionary<PetriPlace, int> inputPlaces = new Dictionary<PetriPlace, int>();
 	[Tooltip("Please leave at 0, thanks.")]	
-	public List<PetriPlace> outputPlaces = new List<PetriPlace>();
+	public Dictionary<PetriPlace, int> outputPlaces = new Dictionary<PetriPlace, int>();
 
 
 
@@ -21,8 +21,8 @@ public class Transition : MonoBehaviour {
 	}
 
 	void OnMouseDown() {
-		foreach ( PetriPlace input in inputPlaces ) {
-			if ( !input.hasToken() ) {
+		foreach ( KeyValuePair<PetriPlace, int> entry in inputPlaces ) {
+			if ( !entry.Key.hasEnoughTokens( entry.Value ) ) {
 				return;
 			}
 		}
@@ -30,12 +30,12 @@ public class Transition : MonoBehaviour {
 	}
 
 	void fire() {
-		foreach ( PetriPlace input in inputPlaces ) {
-			input.takeToken();
+		foreach ( KeyValuePair<PetriPlace, int> entry in inputPlaces ) {
+			entry.Key.takeTokens( entry.Value );
 		}
 
-		foreach ( PetriPlace output in outputPlaces ) {
-			output.giveToken();
+		foreach ( KeyValuePair<PetriPlace, int> entry in outputPlaces ) {
+			entry.Key.giveTokens( entry.Value );
 		}
 	}
 }

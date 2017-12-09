@@ -18,7 +18,7 @@ public class Wincondition : MonoBehaviour {
 	void Update () {
 		bool winning = true;
 		foreach ( PetriPlace place in placesToBeEmpty ) {
-			if ( place.hasToken() ) {
+			if ( place.hasEnoughTokens(1) ) {
 				winning = false;
 			}
 		}
