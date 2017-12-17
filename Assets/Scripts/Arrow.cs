@@ -6,7 +6,7 @@ public class Arrow : MonoBehaviour {
 	public PetriPlace place;
 	public Transition transition;
 	public Direction direction;
-	[Tooltip("How many tokens are consumed/given by this arrow? Usually should be ~1-4 (definitely >= 1")]
+	[Tooltip("How many tokens are consumed/given by this arrow? Should be 1, 2 or 3")]
 	public int multiplicity = 1;
 
 	public enum Direction {In, Out};
@@ -15,6 +15,7 @@ public class Arrow : MonoBehaviour {
 	private Transform output;
 	private Transform arrowLine;
 	private Transform arrowHead;
+	private MultiplicityGraphics multiplicityGraphics;
 
 	private float baseLength = 2.0f; // This is the length of the arrowLine, excluding the head(!), before scaling is applied. This depends on illustrator settings.
 
@@ -30,6 +31,7 @@ public class Arrow : MonoBehaviour {
 	void Start () {
 		arrowHead = transform.GetChild(0);
 		arrowLine = transform.GetChild(1);
+		multiplicityGraphics = transform.GetChild(2).GetComponent<MultiplicityGraphics>();
 		input = (direction == Direction.In) ? place.transform : transition.transform;
 		output = (direction == Direction.Out) ? place.transform : transition.transform;
 		absoluteLength = Vector3.Distance(input.position, output.position);
@@ -47,6 +49,7 @@ public class Arrow : MonoBehaviour {
 		shortenLine(angle);
 
 		registerWithTransition();
+		multiplicityGraphics.setMultiplicity( multiplicity );
 	}
 
 	/*
