@@ -8,6 +8,8 @@ public class MultiplicityGraphics : MonoBehaviour {
 	public Sprite TwoGraphic;
 	public Sprite ThreeGraphic;
 
+	public int spriteRef;
+
 	private SpriteRenderer multiplicityRenderer;
 
 
@@ -17,8 +19,12 @@ public class MultiplicityGraphics : MonoBehaviour {
 
 	public void setMultiplicity(int i) {
 		Assert.IsTrue(i >= 1 && 1 <= 3);
-		if ( i == 1 ) multiplicityRenderer.sprite = OneGraphic;
-		if ( i == 2 ) multiplicityRenderer.sprite = TwoGraphic;
-		if ( i == 3 ) multiplicityRenderer.sprite = ThreeGraphic;
+		spriteRef = i;
+	}
+
+	public void applyMultiplicity() {
+		if ( spriteRef == 1 ) multiplicityRenderer.sprite = OneGraphic;
+		if ( spriteRef == 2 ) multiplicityRenderer.sprite = TwoGraphic;
+		if ( spriteRef == 3 ) multiplicityRenderer.sprite = ThreeGraphic;
 	}
 }
