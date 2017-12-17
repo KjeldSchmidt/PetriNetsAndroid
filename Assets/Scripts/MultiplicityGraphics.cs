@@ -15,11 +15,15 @@ public class MultiplicityGraphics : MonoBehaviour {
 
 	private void Start() {
 		multiplicityRenderer = GetComponent<SpriteRenderer>();
+		applyMultiplicity();
 	}
 
 	public void setMultiplicity(int i) {
 		Assert.IsTrue(i >= 1 && 1 <= 3);
 		spriteRef = i;
+		if (multiplicityRenderer != null ) {
+			applyMultiplicity();
+		}
 	}
 
 	public void applyMultiplicity() {
