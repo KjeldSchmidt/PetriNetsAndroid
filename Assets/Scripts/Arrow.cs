@@ -85,11 +85,12 @@ public class Arrow : MonoBehaviour {
 
 	void registerWithTransition() {
 		if ( direction == Direction.In ) {
-			this.transition.inputPlaces.Add( this.place, this.multiplicity );
+			this.transition.addInput( this.place, this.multiplicity );
+			
 		}
 
 		if ( direction == Direction.Out ) {
-			this.transition.outputPlaces.Add( this.place, this.multiplicity );
+			this.transition.addOutput( this.place, this.multiplicity );
 		}
 	}
 }

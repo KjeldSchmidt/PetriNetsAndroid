@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Transition : MonoBehaviour {
 
-	[Tooltip("Please leave at 0, thanks.")]
-	public Dictionary<PetriPlace, int> inputPlaces = new Dictionary<PetriPlace, int>();
-	[Tooltip("Please leave at 0, thanks.")]	
-	public Dictionary<PetriPlace, int> outputPlaces = new Dictionary<PetriPlace, int>();
+	private Dictionary<PetriPlace, int> inputPlaces = new Dictionary<PetriPlace, int>();
+	private Dictionary<PetriPlace, int> outputPlaces = new Dictionary<PetriPlace, int>();
 
 
 
@@ -37,5 +35,13 @@ public class Transition : MonoBehaviour {
 		foreach ( KeyValuePair<PetriPlace, int> entry in outputPlaces ) {
 			entry.Key.giveTokens( entry.Value );
 		}
+	}
+
+	public void addInput( PetriPlace place, int multiplicity ) {
+		inputPlaces.Add( place, multiplicity );
+	}
+
+	public void addOutput( PetriPlace place, int multiplicity ) {
+		outputPlaces.Add( place, multiplicity );
 	}
 }
